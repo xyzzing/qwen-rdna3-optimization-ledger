@@ -17,8 +17,15 @@ fixed protocol.
 
 - **[Where we are](where-we-are.md)** — the plain-language guide: how generation works, what we
   made faster, which doors are measured shut, and **what transfers to Qwen 4** (three tiers).
-- **[Campaign update Nov 14 — window-1 arc](campaign-2026-11-14-window1.md)** — the newest entry:
-  the deciding capture for the two remaining kernel ideas prepared end to end on CPU — a worker
+- **[Campaign update Nov 15 — Loom on gfx1100](campaign-2026-11-15.md)** — the newest entry:
+  the codegen question answered on CPU only — Loom (`hrx-loom` 0.1.0) is pinned and proven to
+  AOT-compile gfx1100 kernels **byte-identically, host-side only** (no HIP/HSA linkage, no GPU
+  contact), and the exposure arithmetic then **closes the fused-boundary question**: even the
+  hard optimistic bound reaches ~0.5× the 1.020× serving bar, and the round's own byte table
+  first "cleared" it only by pricing 30,720 B/entry of writes that never happen on this
+  deployment — the phantom-writes trap, banked as a measurement rule.
+- **[Campaign update Nov 14 — window-1 arc](campaign-2026-11-14-window1.md)** — the deciding
+  capture for the two remaining kernel ideas prepared end to end on CPU — a worker
   context ceiling hit and the frontier finished the audit itself, **block verification measured
   INAPPLICABLE for greedy production** (the block law commits the same prefix as the equality scan;
   zero gain is forced), three default-off taps implemented with the parser failing closed, and a
@@ -94,15 +101,16 @@ after the fact. Keep every raw row, failed run and exclusion reason. Uninstrumen
 the only performance authority; instrument traces must disclose their perturbation. Full protocol
 and the ratio-definition ledger: [methodology.md](methodology.md).
 
-## Status (2026-11-14)
+## Status (2026-11-15)
 
 The board is fully dispositioned: **zero promotions across the final ~12-experiment campaign**;
-the deployed stack stands on the adopted set; every remaining item is an upstream wait
-([open-upstream.md](open-upstream.md)) — except one: a single correctness-only capture
-(strings-check first; it may cost zero code) prices or closes both remaining local candidates,
-the IQ3_S→Direct4 exposure and the EXL3 window-shape arm-gating candidate
-([campaign Nov 14](campaign-2026-11-14.md)). The campaign's most valuable export is the
-negative knowledge plus the measurement rules that made each close cheap.
+the deployed stack stands on the adopted set. The last open local item — the deciding capture —
+has since **RUN and closed both remaining candidates** ([window-1 arc](campaign-2026-11-14-window1.md)),
+and the follow-up codegen question (Loom on gfx1100) **closed on CPU only**
+([campaign Nov 15](campaign-2026-11-15.md)): the toolchain is proven, no fused boundary reaches
+the serving bar. Every remaining item is an upstream wait ([open-upstream.md](open-upstream.md)).
+The campaign's most valuable export is the negative knowledge plus the measurement rules that
+made each close cheap.
 
 ## License
 

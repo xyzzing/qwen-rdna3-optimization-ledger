@@ -98,7 +98,7 @@ the easy wins were taken first, and the rest have so far resisted measurement.
 | A device fault in chunked prefill (bug filed upstream, [#5539](https://github.com/Niko1221/Strata/issues/5539)) — the fix would be ~45% faster long prompts | waiting on upstream |
 | A compiler bug that silently fuses rounding steps ([ROCm #5330](https://github.com/ROCm/llvm-project/issues/5330)) — matters for anyone needing bit-exact GPU math | waiting on upstream |
 | Multi-request serving (two jobs at once) | headroom measured: a *short* second job fits; two full 94K sessions don't |
-| Two pricing gaps, one capture from resolution | the IQ3_S→Direct4 integer-dot cache (**format proven**: the codebook is 16 signed levels, exact mapping exhibited; exposure `f×h` unpriced) and window-shape arm gating from an EXL3 donor audit — the capture's instrumentation is now built and review-gated (**re-request READY**, operator grant pending), and block verification was measured **INAPPLICABLE** for greedy production on the way ([window-1 arc](campaign-2026-11-14-window1.md)) |
+| The two pricing gaps and the codegen question | **all closed**: the capture RAN and B2 benched to closure — no qualifying candidate for the 2% bar, every reopening door measured shut ([window-1 arc](campaign-2026-11-14-window1.md)); the Loom codegen route closed on CPU only ([campaign Nov 15](campaign-2026-11-15.md)) — Loom is proven on gfx1100 CPU-side, but no fused boundary reaches the 1.020× bar, and the byte-ledger "clearing" was phantom writes (an intermediate that never touches global memory) |
 | Time-to-first-token as its own product | separate objective, separate scorecard |
 | The next model generation | see below |
 
